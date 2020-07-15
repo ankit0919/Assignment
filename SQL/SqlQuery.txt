@@ -1,0 +1,23 @@
+
+a>Write an SQL query to find nth largest salary along with employee name.
+
+Query ->select empName , salary 
+from employee as e, salary as s 
+
+	inner join salary on e.empid=s.salary
+ 
+	where (select salary from  salary as s1
+ 
+	where n-1 = (select count(distinct salary)
+			 
+             	     from salary s2
+             
+             	     where s2.salary > s1.salary));
+
+
+b> Write a query to update salary of employees to 5000 whose age is 30+
+
+Query->Update Salary s inner join Employee e on s.EmpId= e.EmpId set salary =5000 
+	where (select timestampdiff(YEAR,Date_of_birth, now()) as age from Employee) >30; 
+             
+ 
